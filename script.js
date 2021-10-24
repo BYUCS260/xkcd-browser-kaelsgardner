@@ -1,6 +1,5 @@
 Vue.component('star-rating', VueStarRating.default);
-
-let app = new Vue ({
+let app = new Vue({
   el: "#app",
   data: {
     number: '',
@@ -21,7 +20,7 @@ let app = new Vue ({
   },
   computed: {
     month() {
-      var month = new Array;
+      var month = new Array();
       if (this.current.month === undefined)
         return '';
       month[0] = "January";
@@ -68,7 +67,7 @@ let app = new Vue ({
         this.loading = false;
         this.number = response.data.num;
       } catch (error) {
-        this.nunmber  = this.max;
+        this.nunmber = this.max;
         console.log(error);
       }
     },
@@ -99,9 +98,9 @@ let app = new Vue ({
     addComment() {
       if (!(this.number in this.comments))
         Vue.set(app.comments, this.number, new Array);
-      this.comments[this.number].push ({
+      this.comments[this.number].push({
         author: this.addedName,
-        text:this.addedComment,
+        text: this.addedComment,
         time: moment().format('MMMM Do YYYY, h:mm:ss a')
       })
       this.addedName = '';
